@@ -1,6 +1,6 @@
-*.h linguist-language=C++
-*.cpp linguist-language=C++
-*.html linguist-detectable=C++
+//*.h linguist-language=C++
+//*.cpp linguist-language=C++
+//*.html linguist-detectable=C++
 *.cpp linguist-language=true
 
 *.csharp linguist-detectable=false 
