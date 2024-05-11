@@ -1,0 +1,191 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.38.0.0
+Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: naji belgasmi, none, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.38.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.19
+Assembler:       Armasm.exe V6.19
+Linker/Locator:  ArmLink.exe V6.19
+Library Manager: ArmAr.exe V6.19
+Hex Converter:   FromElf.exe V6.19
+CPU DLL:         SARMCM3.DLL V5.38.0.0
+Dialog DLL:      DCM.DLL V1.17.5.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.1.0.0
+Dialog DLL:      TCM.DLL V1.56.4.0
+ 
+<h2>Project:</h2>
+C:\Users\neji\Desktop\Projets\projet_stm32\keil\36_systeck_driver_lib_c++\GPIO.uvprojx
+Project File Date:  05/10/2024
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
+Build target 'stm32f4'
+main.cpp(1): warning: In file included from...
+./my_stm32f4_gpio_lib.h(88): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+main.cpp(2): warning: In file included from...
+./my_stm32f4_systick_lib.h(17): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+main.cpp(4): warning: no previous extern declaration for non-static variable 'delayTimer' [-Wmissing-variable-declarations]
+SYSTICK delayTimer;
+        ^
+main.cpp(4): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+SYSTICK delayTimer;
+^
+main.cpp(4): warning: declaration requires a global constructor [-Wglobal-constructors]
+SYSTICK delayTimer;
+        ^~~~~~~~~~
+main.cpp(5): warning: no previous extern declaration for non-static variable 'myGPIO_InitStruct' [-Wmissing-variable-declarations]
+GPIO_InitTypeDef myGPIO_InitStruct;
+                 ^
+main.cpp(5): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+GPIO_InitTypeDef myGPIO_InitStruct;
+^
+main.cpp(11): warning: use of old-style cast [-Wold-style-cast]
+  myGPIO_InitStruct = __gpio_pin_params(GPIO_PIN_13,GPIO_MODE_OUTPUT_PP,GPIO_NOPULL);
+                                        ^~~~~~~~~~~
+./my_stm32f4_gpio_lib.h(19): note: expanded from macro 'GPIO_PIN_13'
+#define  GPIO_PIN_13   ((uint16_t)0x2000)
+                        ^         ~~~~~~
+main.cpp(12): warning: use of old-style cast [-Wold-style-cast]
+        Gpio myoutput1 (PORTD,GPIOD,&myGPIO_InitStruct);
+                              ^~~~~
+./my_stm32f4_gpio_driver.h(75): note: expanded from macro 'GPIOD'
+#define   GPIOD  ((GPIO_typeDef *)GPIOD_BASE)
+                  ^               ~~~~~~~~~~
+main.cpp(1): warning: In file included from...
+./my_stm32f4_gpio_lib.h(64): warning: padding size of 'Gpio' with 3 bytes to alignment boundary [-Wpadded]
+class Gpio{
+      ^
+main.cpp(16): warning: use of old-style cast [-Wold-style-cast]
+                  myoutput1.LIB_GPIO_TogglePin(GPIOD,GPIO_PIN_13);
+                                               ^~~~~
+./my_stm32f4_gpio_driver.h(75): note: expanded from macro 'GPIOD'
+#define   GPIOD  ((GPIO_typeDef *)GPIOD_BASE)
+                  ^               ~~~~~~~~~~
+main.cpp(16): warning: use of old-style cast [-Wold-style-cast]
+                  myoutput1.LIB_GPIO_TogglePin(GPIOD,GPIO_PIN_13);
+                                                     ^~~~~~~~~~~
+./my_stm32f4_gpio_lib.h(19): note: expanded from macro 'GPIO_PIN_13'
+#define  GPIO_PIN_13   ((uint16_t)0x2000)
+                        ^         ~~~~~~
+10 warnings generated.
+compiling main.cpp...
+my_stm32f4_systick_lib.cpp(1): warning: In file included from...
+./my_stm32f4_systick_lib.h(17): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+my_stm32f4_systick_lib.cpp(13): warning: use of old-style cast [-Wold-style-cast]
+        SysTeck->LOAD = 16000000 -1; //load 1 sec
+        ^~~~~~~
+./stm32f4_systick_driver.h(26): note: expanded from macro 'SysTeck'
+#define SysTeck    ((SysTick_Type *) SysTick_BASE)  /*systick configurztion structure*/
+                    ^                ~~~~~~~~~~~~
+my_stm32f4_systick_lib.cpp(14): warning: use of old-style cast [-Wold-style-cast]
+        SysTeck->VAL = 0; //clear current value register
+        ^~~~~~~
+./stm32f4_systick_driver.h(26): note: expanded from macro 'SysTeck'
+#define SysTeck    ((SysTick_Type *) SysTick_BASE)  /*systick configurztion structure*/
+                    ^                ~~~~~~~~~~~~
+my_stm32f4_systick_lib.cpp(15): warning: use of old-style cast [-Wold-style-cast]
+        SysTeck->CTRL = 5; // enable systick , no interrupt
+        ^~~~~~~
+./stm32f4_systick_driver.h(26): note: expanded from macro 'SysTeck'
+#define SysTeck    ((SysTick_Type *) SysTick_BASE)  /*systick configurztion structure*/
+                    ^                ~~~~~~~~~~~~
+my_stm32f4_systick_lib.cpp(19): warning: use of old-style cast [-Wold-style-cast]
+                while((SysTeck->CTRL & 0X10000) == 0){} //wait untel countflag is set
+                       ^~~~~~~
+./stm32f4_systick_driver.h(26): note: expanded from macro 'SysTeck'
+#define SysTeck    ((SysTick_Type *) SysTick_BASE)  /*systick configurztion structure*/
+                    ^                ~~~~~~~~~~~~
+my_stm32f4_systick_lib.cpp(21): warning: use of old-style cast [-Wold-style-cast]
+        SysTeck->CTRL = 0; ///stop the timer (en = 0)
+        ^~~~~~~
+./stm32f4_systick_driver.h(26): note: expanded from macro 'SysTeck'
+#define SysTeck    ((SysTick_Type *) SysTick_BASE)  /*systick configurztion structure*/
+                    ^                ~~~~~~~~~~~~
+my_stm32f4_systick_lib.cpp(17): warning: comparison of integers of different signs: 'int' and 'uint32_t' (aka 'unsigned int') [-Wsign-compare]
+        for(i=0;i<sec;i++){
+                ~^~~~
+my_stm32f4_systick_lib.cpp(29): warning: use of old-style cast [-Wold-style-cast]
+        SysTeck->LOAD = 16000 -1; //load 1 sec
+        ^~~~~~~
+./stm32f4_systick_driver.h(26): note: expanded from macro 'SysTeck'
+#define SysTeck    ((SysTick_Type *) SysTick_BASE)  /*systick configurztion structure*/
+                    ^                ~~~~~~~~~~~~
+my_stm32f4_systick_lib.cpp(30): warning: use of old-style cast [-Wold-style-cast]
+        SysTeck->VAL = 0; //clear current value register
+        ^~~~~~~
+./stm32f4_systick_driver.h(26): note: expanded from macro 'SysTeck'
+#define SysTeck    ((SysTick_Type *) SysTick_BASE)  /*systick configurztion structure*/
+                    ^                ~~~~~~~~~~~~
+my_stm32f4_systick_lib.cpp(31): warning: use of old-style cast [-Wold-style-cast]
+        SysTeck->CTRL = 5; // enable systick , no interrupt
+        ^~~~~~~
+./stm32f4_systick_driver.h(26): note: expanded from macro 'SysTeck'
+#define SysTeck    ((SysTick_Type *) SysTick_BASE)  /*systick configurztion structure*/
+                    ^                ~~~~~~~~~~~~
+my_stm32f4_systick_lib.cpp(35): warning: use of old-style cast [-Wold-style-cast]
+                while((SysTeck->CTRL & 0X10000) == 0){} //wait untel countflag is set
+                       ^~~~~~~
+./stm32f4_systick_driver.h(26): note: expanded from macro 'SysTeck'
+#define SysTeck    ((SysTick_Type *) SysTick_BASE)  /*systick configurztion structure*/
+                    ^                ~~~~~~~~~~~~
+my_stm32f4_systick_lib.cpp(37): warning: use of old-style cast [-Wold-style-cast]
+        SysTeck->CTRL = 0; ///stop the timer (en = 0)
+        ^~~~~~~
+./stm32f4_systick_driver.h(26): note: expanded from macro 'SysTeck'
+#define SysTeck    ((SysTick_Type *) SysTick_BASE)  /*systick configurztion structure*/
+                    ^                ~~~~~~~~~~~~
+my_stm32f4_systick_lib.cpp(33): warning: comparison of integers of different signs: 'int' and 'uint32_t' (aka 'unsigned int') [-Wsign-compare]
+        for(i=0;i<milli;i++){
+                ~^~~~~~
+13 warnings generated.
+compiling my_stm32f4_systick_lib.cpp...
+linking...
+Program Size: Code=1120 RO-data=412 RW-data=0 ZI-data=1656  
+".\Objects\GPIO.axf" - 0 Error(s), 23 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
+                ARM.CMSIS.5.9.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.6.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F4xx_DFP.2.16.0.pack
+                Keil.STM32F4xx_DFP.2.16.0
+                STMicroelectronics STM32F4 Series Device Support, Drivers and Examples
+   * Component: Startup Version: 2.6.3
+
+<h2>Collection of Component include folders:</h2>
+  ./RTE/_stm32f4
+  C:/Users/neji/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
+  C:/Users/neji/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.6.0
+
+   * Component: Keil::Device:Startup:2.6.3
+      Include file:  Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
+      Source file:   MDK/Device/Source/ARM/STM32F4xx_OTP.s
+      Source file:   Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm/startup_stm32f407xx.s
+      Source file:   MDK/Device/Source/ARM/STM32F40xxx_41xxx_OPT.s
+      Source file:   Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/system_stm32f4xx.c
+Build Time Elapsed:  00:00:01
+</pre>
+</body>
+</html>
