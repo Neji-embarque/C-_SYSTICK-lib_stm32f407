@@ -1,0 +1,10 @@
+*.h linguist-language=C++
+*.cpp linguist-language=C++
+*.html linguist-detectable=C++
+*.cpp linguist-language=true
+
+*.csharp linguist-detectable=false 
+*.java linguist-detectable=false  
+*.js linguist-detectable=false  
+*.html linguist-detectable=false  
+*.xml linguist-detectable=false
