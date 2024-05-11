@@ -1,5 +1,6 @@
 *.h linguist-language=C++
 *.cpp linguist-language=C++
+*.cpp linguist-language=true
 
 *.csharp linguist-detectable=false 
 *.java linguist-detectable=false  
